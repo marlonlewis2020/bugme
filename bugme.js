@@ -7,7 +7,6 @@ $(document).ready(function(){
     // -------- ON STARTUP, CHECK IF USER IS LOGGED IN - authenticated() function.
     // -------- IF NOT LOGGED IN, ALWAYS LOAD LOGIN PAGE.
     // -------- IF LOGGED IN, CONTINUE.
-    
     authenticated();
 
     // -------- SUPPORTING FUNCTIONS --------

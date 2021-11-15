@@ -5,7 +5,6 @@ $_SESSION['id']=null;
 $_SESSION['email']=null;
 $_SESSION['firstname']=null;
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

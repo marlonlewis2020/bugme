@@ -9,7 +9,9 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 $request = filter_input(INPUT_GET,'auth',FILTER_SANITIZE_STRING);
 
 if($request=="logout"){
-    session_unset();
+    $_SESSION['firstname'] = null;
+    $_SESSION['id'] = null;
+    $_SESSION['email'] = null;
 }
 else 
 if($request=="login"){

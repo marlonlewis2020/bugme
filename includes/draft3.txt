@@ -1,0 +1,124 @@
+$(document).ready(function(){
+
+    var logout = "<i class=\"material-icons small-icon\">power_settings_new</i><h3>Logout</h3>";
+    var login = "<i class=\"material-icons small-icon\">power_settings_new</i><h3>Login</h3>";
+
+    // -------- IF NOT LOGGED IN, LOAD LOGIN PAGE.
+    // -------- IF LOGGED IN, CONTINUE TO HOME.
+
+    loadPage("includes/login.php");
+
+    // -------- SUPPORTING FUNCTIONS --------
+
+    //This function returns the content of a php script into the index.php content area.
+    function loadPage(page){
+        $.get(page,function(data){
+            $("#content").html(data);
+        });
+        log(); //updates auth button
+    }
+
+    //This function changes the form display property to make the login form visible or invisible.
+    function hideForm(set){
+        $("#id01").css({
+            "display":set
+        })
+        $("input[type='email']").val("");
+        $("input[type='password']").val("");
+    }
+
+    //checks if a user is logged in.
+    //if logged in, the auth button changes to 'Logout".
+    //if not logged in, auth button changes to "Login".
+    function log(p){
+        $.get("./includes/dbconnect.php?auth=login",function(data){
+            var status = data;        
+            console.log("log status: "+status);
+            if(status.localeCompare("True")){
+                $("#auth").html(login);
+                console.log(login);
+            }
+            else if(status.localeCompare("False")){
+                $("#auth").html(logout);
+                console.log(logout);
+            }
+        });
+    }
+
+    //This function uses dbconnect.php to logout the user.
+    //It calls the log() function to set the subpage and auth button appropriately.
+    function logout_(){
+        $.get("./includes/dbconnect.php?auth=logout",function(){});
+        loadPage("includes/login.php");
+    }
+
+    // -------- LOADING EVENT HANDLERS --------
+
+    //captures user login info from form and attempts to authenticate user when enter key is pressed
+    $("input[type='password']").keyup(function(e){
+        e.preventDefault();
+        if(e.keyCode==13){
+            var eml = $("input[type='email']").val();
+            var pwd = $("input[type='password']").val();
+            $.post("./includes/login_action_page.php",{
+                email:eml,
+                psw:pwd
+            },
+            function(result,status){
+                console.log(status);
+                $("#content").html(result);
+            })
+            hideForm("none");
+            log();
+            console.log(email,psw);
+        }
+    })
+
+    //captures user login info from form and attempts to authenticate user when login from button is pressed
+    $("#login-btn").click(function(e){
+        e.preventDefault();
+        var eml = $("input[type='email']").val();
+        var pwd = $("input[type='password']").val();
+        $.post("./includes/login_action_page.php",{
+            email:eml,
+            psw:pwd
+        },
+        function(result){
+            console.log("result: "+result);
+            $("#content").html(result);
+            log();
+        })
+        hideForm("none");
+    })
+
+    // 
+    // -------- MENU BUTTON FUNCTIONS --------
+    // 
+
+    //goes to home page
+    $("#home").click(function(){
+        loadPage('./includes/banner.php'); //loads the requested page, sets login status and updates auth button
+    })
+
+    //goes to add user page
+    $("#add_user").click(function(){
+        loadPage('./includes/banner.php'); //loads the requested page, sets login status and updates auth button
+    })
+
+    //goes to new issue page
+    $("#new_issue").click(function(){
+        loadPage('./includes/banner.php'); //loads the requested page, sets login status and updates auth button
+    })
+
+    //allows user to log in or log out of session
+    $("#auth").click(function(e){
+        e.preventDefault();
+        if($(this).html().localeCompare(logout)){
+            logout_(); //loads the login page, sets session variables to null and then updates auth button
+        }
+        else{
+            loadPage("./includes/login.php"); //loads the login page, sets login status and updates auth button
+        }
+    })
+
+})

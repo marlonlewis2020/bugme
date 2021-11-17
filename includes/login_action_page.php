@@ -15,15 +15,14 @@ if($results && password_verify($password,$results['password'])){
     $_SESSION['id'] = $results['id'];
     $_SESSION['email'] = $results['email'];
     $_SESSION['page']="home.php";
-    echo "<p>Welcome ".$_SESSION['firstname']." 'action_page.php'</p>";
-    echo "<p>You are signed in.</p></div>";
 }
 else{
-    echo "verification failed";
+    echo "<p id='error'><i id='warn' class='material-icons'>warning</i> verification failed!</p>";
     $_SESSION['firstname'] = null;
     $_SESSION['id'] = null;
     $_SESSION['email'] = null;
-    include 'login.php';
 }
+
+include 'login.php';
 
 ?>

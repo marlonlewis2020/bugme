@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2021 at 10:47 PM
+-- Generation Time: Nov 17, 2021 at 04:31 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -17,86 +18,88 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: "bugme"
+-- Database: `bugme`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table "issues"
+-- Table structure for table `issues`
 --
 
 CREATE TABLE `issues` (
- `id` int(10) NOT NULL AUTO_INCREMENT,
- `title` varchar(45) NOT NULL,
- `description` text NOT NULL,
- `type` varchar(40) NOT NULL,
- `priority` varchar(30) NOT NULL,
- `status` varchar(30) NOT NULL,
- `assigned_to` int(5) NOT NULL,
- `created_by` int(5) NOT NULL,
- `created` datetime NOT NULL,
- `updated` datetime NOT NULL,
- PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
+  `id` int(10) NOT NULL,
+  `title` varchar(45) NOT NULL,
+  `description` text NOT NULL,
+  `type` varchar(40) NOT NULL,
+  `priority` varchar(30) NOT NULL,
+  `status` varchar(30) NOT NULL,
+  `assigned_to` int(5) NOT NULL,
+  `created_by` int(5) NOT NULL,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table "issues"
+-- Dumping data for table `issues`
 --
 
-INSERT INTO "issues" ("id", "title", "description", "type", "priority", "status", "assigned_to", "created_by", "created", "updated") VALUES
+INSERT INTO `issues` (`id`, `title`, `description`, `type`, `priority`, `status`, `assigned_to`, `created_by`, `created`, `updated`) VALUES
 (1, 'test', 'test description', 'type1', 'high', 'pending', 1, 1, '2021-11-15 16:31:32', '2021-11-15 16:31:32');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table "users"
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
- `id` int(5) NOT NULL AUTO_INCREMENT,
- `firstname` varchar(25) NOT NULL,
- `lastname` varchar(25) NOT NULL,
- `password` varchar(256) NOT NULL,
- `email` varchar(50) NOT NULL,
- `date_joined` datetime NOT NULL,
- PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+  `id` int(5) NOT NULL,
+  `firstname` varchar(25) NOT NULL,
+  `lastname` varchar(25) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `date_joined` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table "users"
+-- Dumping data for table `users`
 --
 
-INSERT INTO "users" ("id", "firstname", "lastname", "password", "email", "date_joined") VALUES
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `date_joined`) VALUES
 (1, 'Admin', 'Project 2', '$2y$10$CD6CU7pIwosQ65DzHp/EL.BDOabl/s1XaVJqSPn.3tQPslyGnrwri', 'admin@project2.com', '2021-11-14 00:00:00');
 
+--
+-- Indexes for dumped tables
+--
 
 --
--- Metadata
+-- Indexes for table `issues`
 --
-USE phpmyadmin;
+ALTER TABLE `issues`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Metadata for table issues
+-- Indexes for table `users`
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Metadata for table users
+-- AUTO_INCREMENT for dumped tables
 --
--- Error reading data for table phpmyadmin.pma__column_info: #1100 - Table 'pma__column_info' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__table_uiprefs: #1100 - Table 'pma__table_uiprefs' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__tracking: #1100 - Table 'pma__tracking' was not locked with LOCK TABLES
 
 --
--- Metadata for database bugme
+-- AUTO_INCREMENT for table `issues`
 --
--- Error reading data for table phpmyadmin.pma__bookmark: #1100 - Table 'pma__bookmark' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__relation: #1100 - Table 'pma__relation' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__savedsearches: #1100 - Table 'pma__savedsearches' was not locked with LOCK TABLES
--- Error reading data for table phpmyadmin.pma__central_columns: #1100 - Table 'pma__central_columns' was not locked with LOCK TABLES
+ALTER TABLE `issues`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

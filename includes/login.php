@@ -2,9 +2,6 @@
 require_once 'dbconnect.php';
 if(!isset($_SESSION['id'])){
 ?>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
 
   <h2>BugMe Issue Tracker Login Form</h2>
 

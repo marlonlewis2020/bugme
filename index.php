@@ -1,16 +1,11 @@
 <?php
 require './includes/dbconnect.php';
 
-$_SESSION['id']=null;
-$_SESSION['email']=null;
-$_SESSION['firstname']=null;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 </head>
 <body>
     <div class="" id="container">
@@ -27,14 +22,7 @@ $_SESSION['firstname']=null;
             </div>
 
             <div class="" id="content">
-                <?php if (!isset($_SESSION['id'])):
-                    include './includes/login.php';
-                    // $pwd = password_hash("password123",PASSWORD_DEFAULT);
-                    // echo "password: ".$pwd;
-                else:
-                    include './includes/home.php';
-                endif;
-                ?>
+                <?php include "includes/login.php"; ?>
             </div>
 
         </div>

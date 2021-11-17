@@ -4,7 +4,7 @@ require_once 'dbconnect.php';
 
 $email = filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL);
 $password = filter_input(INPUT_POST,"psw",FILTER_SANITIZE_STRING);
-var_dump($email,$password);
+// var_dump($email,$password);
 
 $sql = "SELECT * FROM `users` WHERE email='".$email."'";
 $stmt = $conn->query($sql);

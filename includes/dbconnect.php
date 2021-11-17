@@ -12,6 +12,7 @@ if($request=="logout"){
     $_SESSION['firstname'] = null;
     $_SESSION['id'] = null;
     $_SESSION['email'] = null;
+    $_SESSION['page']="home.php";
 }
 else 
 if($request=="login"){

@@ -5,7 +5,7 @@ require './includes/dbconnect.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include './includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 </head>
 <body>
     <div class="" id="container">
@@ -22,7 +22,7 @@ require './includes/dbconnect.php';
             </div>
 
             <div class="" id="content">
-                <!-- AREA FOR SUB-PAGES TO BE INSERTED -->
+                <?php include "includes/login.php"; ?>
             </div>
 
         </div>

@@ -29,6 +29,7 @@ if(isset($_SESSION['id'])){ ?>
         
       <button id="new_user-btn" type="submit">Submit</button>
     </div>
+    <p id="error"></p>
 
     </div>
   </form>

@@ -27,6 +27,25 @@ $(document).ready(function(){
                 "display":"none"
             })
         })
+
+        $("#user-form").submit(function(e){
+            e.preventDefault();
+            var eml = $("input[type='email']").val();
+            var pwd = $("input[type='password']").val();
+            var fname = $("#firstname").val();
+            var lname = $("#lastname").val();
+            $.post("includes/add_user_action_page.php",{
+                email:eml,
+                password:pwd,
+                firstname:fname,
+                lastname:lname
+            },
+            function(result){
+                log();
+                $("#error").html(result);
+            })
+            $(this).reload();
+        })
     })  
     
 

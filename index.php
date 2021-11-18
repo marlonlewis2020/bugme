@@ -23,6 +23,7 @@ require './includes/dbconnect.php';
 
             <div class="" id="content">
                 <?php include "includes/login.php"; ?>
+                <?php include "includes/add_user.php"; ?>
             </div>
 
         </div>

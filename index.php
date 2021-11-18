@@ -18,7 +18,9 @@ require './includes/dbconnect.php';
         <div class="" id="main">
 
             <div class="" id="nav-bar">
-                <?php include './includes/navbar.php'; ?>
+                <nav>
+                    <?php include './includes/navbar.php'; ?>
+                </nav>
             </div>
 
             <div class="" id="content">

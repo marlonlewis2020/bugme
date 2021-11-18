@@ -63,7 +63,7 @@ body::before{
   margin-top:98px;
   min-width: 150px;
   height: 100vh;
-  padding-left: 10px;
+  padding-left: 0;
   background-color: var(--nav-bg-clr);
   opacity:var(--opacity);
 }
@@ -78,7 +78,9 @@ h3{
 }
 
 .nav-link{
-  width: 100%;
+  width:auto;
+  padding: 0;
+  padding-left: 10px;
   opacity: 1;
   font-size: 14px;
 }
@@ -122,6 +124,7 @@ h3{
 }
 
 .nav-link:hover{
+  background-color: #ffffff;
   cursor: pointer;
   color: var(--link-clr);
   opacity: 0.75;

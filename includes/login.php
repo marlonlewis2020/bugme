@@ -39,8 +39,6 @@ if(!isset($_SESSION['id'])){
   </div>
 <?php }
 else{
-  echo "<p>Welcome ".$_SESSION['firstname']." 'login.php'</p>";
-  echo "<p>You are signed in.</p></div>";
-  // include $_SESSION['page'];
+  include $_SESSION['page'];
 }
 ?>

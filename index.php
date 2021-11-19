@@ -18,12 +18,12 @@ require './includes/dbconnect.php';
         <div class="" id="main">
 
             <div class="" id="nav-bar">
-                <nav>
+                <nav role="navigation">
                     <?php include './includes/navbar.php'; ?>
                 </nav>
             </div>
 
-            <div class="" id="content">
+            <div class="" id="content" role="main">
                 <?php include "includes/login.php"; ?>
             </div>
 

@@ -10,7 +10,6 @@ if(!isset($_SESSION['id'])){
   <div id="id01" class="modal">
     
     <form id="login-form" name="login-form" class="modal-content animate" >
-    <!-- CONNECTS TO LOGINACTIONPAGE action="includes/login_action_page.php" method="POST" -->
       <div class="imgcontainer">
         <span id="x" class="close" onclick="document.getElementById('id01').style.display='none'" title="Close Login">&times;</span>
         <img src="images/female_avatar_icon.png" alt="Avatar" class="avatar">
@@ -26,9 +25,9 @@ if(!isset($_SESSION['id'])){
           </div>
           
         <button id="login-btn" type="submit">Login</button>
-        <!-- <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label> -->
+        <label>
+          <!-- <input type="checkbox" checked="checked" name="remember"> Remember me -->
+        </label>
       </div>
 
       <div class="container" style="background-color:#f1f1f1">

@@ -16,7 +16,7 @@ if($chk<1){
     try{
         $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $stmt = $conn->exec($sql);
-        echo "New User '{$firstname}' successfully added!";
+        echo "New User '{$firstname}'";
     }
     catch(PDOException $e){
         echo "Failed to add '".$firstname."' as a new User. Try Again or contact System Administrator. ". $e->getMessage();

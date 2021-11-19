@@ -7,6 +7,8 @@
         <title>BugMe Issue Tracker</title>
         <link rel="icon" href="images/group_avatar_icon.png" type="image/x-icon">
         <link rel="stylesheet" href="bugme.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.10/sweetalert2.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.10/sweetalert2.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="bugme.js"></script>

@@ -1,0 +1,265 @@
+.container-k{
+    display: grid;
+    grid-template-columns: repeat(13, minmax(0,1fr));
+}
+
+.issuename {
+    display: flex;
+    grid-column: 1/13;
+    font-size: 3.5em;
+    margin-bottom: 0;
+}
+
+.issuename-2{
+    grid-column: 1/7;
+
+}
+.issueno{
+    display: flex;
+    grid-column: 1/13;
+    font-size: 1.3em;
+    margin-top: 1px;
+}
+
+.row-1{
+    grid-column: 10/13;
+    display: flex;
+}
+
+
+.filtermenu{
+    display: flex;
+    grid-column: 1/13;
+    font-size: 1.3em;
+    color: black;
+    margin-top: 2.5rem;
+}
+
+.selected{
+    background-color: #1b6ac9;
+    color: white;
+    border-radius: 6px;
+}
+
+
+.container-k a{
+    text-decoration: none;
+}
+.container-k a:link {
+    color: black;
+}
+
+.container-k a:visited {
+    color: black;
+}
+
+.container-k a:focus {
+    color: black;
+}
+
+.container-k a:hover {
+    color: black;
+}
+
+.container-k a:active {
+    color: black;
+}
+
+.container-k .btnmenu,
+.newissue{
+    padding: 0.25em 1.5em;
+    white-space: nowrap;
+}
+
+.newissue{
+    align-self: end;
+    padding: .9em 2.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: #2da562;
+    justify-content: end;
+}
+
+.filtermenu .filtertitle{
+    padding-left: 0;
+}
+
+.issue{
+    grid-column: 1/9;
+}
+
+.pg{
+    display: flex;
+    font-family: monospace;
+    font-size: 1.3em;
+}
+
+.liststyle{
+    margin: 20px;
+    padding: 1em;
+    padding-top: 2em;
+    grid-column: 1/8;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.liststyle li{
+    padding-top: .6rem;
+    list-style-type:none;
+}
+
+.issueinfo{
+    grid-column: 10/13;
+    display: flex;
+    flex-direction: column;
+    width: 275px;
+}
+
+aside{ 
+    display: grid;
+    height: 18rem;
+    margin: 10px;
+    padding: 10px;
+    padding-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #e5e5e7;
+}
+
+span.heading,
+span.detail{
+    padding-left: 0;
+    margin-top: 0.3rem;
+}
+
+.heading{
+    font-weight: bold;
+}
+
+.issuebtn{
+    grid-column: 10/13;
+}
+
+.btn-k,
+.btn-k-2{
+    grid-column: 10/13;
+    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    border-radius: 6px;
+    border: none;
+}
+
+.btn-k{
+    background-color: #1b6ac9;
+}
+
+.btn-k-2{
+    background-color: #2da562;
+}
+
+.bugmetab{
+    font-size: 1.3em;
+    white-space: nowrap;
+
+}
+
+
+.tab-title{
+    grid-column: 1/6;
+}
+
+.tab-type{
+    grid-column: 6/6;
+}
+
+.tab-status{
+    grid-column: 7/9;
+}
+
+.tab-assigned{
+    grid-column: 9/11;
+}
+
+.tab-created{
+    grid-column: 12/13;
+}
+
+.header-tab{
+    background-color: lightgrey;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 6px;
+}
+
+.header-tab h4{
+    margin: .1em 0;
+}
+
+.bugmetab h4{
+    overflow: clip;
+    padding: 0.25em .5em;
+}
+
+.row-tab{
+    border-bottom: solid 2px lightgrey;
+}
+.row-tab h4{
+    font-weight: normal;
+    margin: .5em 0;
+}
+
+.tab-title div{
+    font-weight: bold;        
+}
+
+.tab-status{
+    display: flex;
+    justify-content: center;
+}
+
+.row-tab .tab-status h4{
+    border-radius: 6px;
+}
+
+.tab-status .open{
+    background-color: #2da562;
+    color: white;
+}
+
+.tab-status .inprogress{
+    background-color: #fbdb4c;
+}
+
+.tab-status .closed{
+    background-color: #fc5404;
+    color: white;
+}
+
+.row-tab a:link {
+    color: blue;
+}
+.row-tab a:visited {
+    color: blue;
+}
+
+.row-tab a:focus {
+    color: blue;
+}
+
+.row-tab a:hover {
+    color: blue;
+}
+
+.row-tab a:active {
+    color: blue;
+}
+
+.tab-created h4{
+    overflow: unset;
+}

@@ -39,8 +39,8 @@ if(!isset($_SESSION['id'])){
   </div>
 <?php }
 else{
-  echo "<p>Welcome ".$_SESSION['firstname']." 'login.php'</p>";
-  echo "<p>You are signed in.</p></div>";
-  // include $_SESSION['page'];
+  //echo "<p>Welcome ".$_SESSION['firstname']." 'login.php'</p>";
+  //echo "<p>You are signed in.</p></div>";
+    include "../" . $_SESSION['page'];//include '../' since the home.php not in includes directory
 }
 ?>

@@ -1,9 +1,14 @@
-<?php
+<?php 
+    
+    require './includes/dbconnectphp'
+    session_start();
 
-$host = "localhost";
-$username = "admin2";
-$password = "password123";
-$dbname = "schema";
+$host = "host";
+$username = "root";
+$password = " ";
+$dbname = "bugme";
+<?php include '../bugme3.css'; ?>
+
 
 try {
   $conn = new PDO("mysql:host=$host;dbname=$dbname",$username,$password);
@@ -26,22 +31,22 @@ try {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-        <script src=" " type="text/javascript"></script>
+    <---!    <link rel="stylesheet" href="styles-issue.css"> -->
+        <script src="bugme-issues.js" type="text/javascript"></script>
     </head>
     <body>
     <div id="container">
 			<header>
 			     <img src="" id="">
-		             <h3>BugMe Issue Tracker</h3>
+		             <h2>BugMe Issue Tracker</h2>
                         </header>
 			
 
     <div class = "sidebar">
 		<ul>
 			<li><a href="#">Home</a></li>
-			<!--- <li><a href=">Add User</a></li> --->
-                        <li><a href="#" class="querydetail" id="issue_id"></a></li>
+			<li><a href="#">Add User</a></li>
+                        
 			<li><a href="#">New Issue</a></li>
 			<li><a href="#">Logout</a></li>
 		</ul>
@@ -50,7 +55,7 @@ try {
 
 <body>
 <h1>Create Issue</h1>
-<form action="" id=issue_new method="POST">
+<form action="submit_issues.php" id=issue_new method="POST">
     <label for="title">Title</label><br>
     <id="title" input type="text"  name="title"><br>
     
@@ -88,7 +93,7 @@ try {
             </select>
             </div>
         <div>
-            <input type="submit" name="form_sub" value="Send" id="submit_button">Submit</button>
+            <input type="submit" name="form_sub" value="Send" id="submit-btn3">Submit</button>
         </div>
     </form>
 </body>

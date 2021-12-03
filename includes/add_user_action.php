@@ -11,9 +11,11 @@ $firstname=filter_input(INPUT_POST, "firstname",FILTER_SANITIZE_STRING);
 $lastname=filter_input(INPUT_POST, "lastname",FILTER_SANITIZE_STRING);
 $date = date('Y-m-d H:i:s');
 
-
-//  if(!preg_match("", $password));
-//        echo "incorrect password Format";
+// $pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/";
+//  if(!preg_match($pattern, $password)){
+//         echo "incorrect password Format";
+//         break;
+//  }
 $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
 // $statement->execute([

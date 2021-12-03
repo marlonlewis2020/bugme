@@ -70,7 +70,7 @@ $(document).ready(function(){
 
     $("#add_user").click(function(){
         console.log("add user btn clicked");
-        // loadPage("adduser.php");
+         loadPage("add_user.php");
     })
 
     $("#new_issue").click(function(){
@@ -86,5 +86,8 @@ $(document).ready(function(){
             loadPage("includes/login.php");
         }
     })
+
+
+
 
 })

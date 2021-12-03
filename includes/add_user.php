@@ -1,20 +1,19 @@
 <?php
 require_once 'dbconnect.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bugme2.css">
-</head>
+<style>
+<?php include '../bugme2.css'; ?>
+</style>
 <?php
+
 // $_SESSION['page']="add_user.php";
 ?>
 
     <br>
-
+<body>
   <h2>New User</h2>
 
 
@@ -39,14 +38,14 @@ require_once 'dbconnect.php';
           </div><br>
           
         <button id="submit-btn" type="submit">Submit</button>
-         <label>
+         <!-- <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label> 
+        </label>  -->
       </div>
 
     </form>
   </div>
-   
+</body>  
 
 
 <?php 
@@ -59,3 +58,10 @@ require_once 'dbconnect.php';
 //  include $_SESSION['page'];
 
 ?>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bugme2.css">
+</head> -->

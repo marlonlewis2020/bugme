@@ -1,23 +1,42 @@
+C:\xampp\htdocs\bugme\bugme2.css
+
+
 head{
     color: plum;
 }
 
 input[type=text],input[type=email], input[type=password]  {
-    width: 100%;
+    width: 90%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
+    background-color: #f3f4f5;
     border-radius: 4px;
+    box-shadow: 1px 1px 1px 0px;
     box-sizing: border-box;
   }
 
   .adduse{
     border-radius: 5px;
-    background-color: #793131;
+    background-color:white ;
     padding: 20px;
   }
 
   h2{
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
+    padding: 12px 20px;
+    font-weight: bolder;
   }
+
+button{
+  background-color: #0475c0;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px 5px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    border-radius: 4px;
+}

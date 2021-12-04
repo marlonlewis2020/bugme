@@ -17,6 +17,7 @@ do {
         }
         break;
     }
+    $_SESSION['page']="../home.php";
 
     $viewmode = filter_input(INPUT_GET, 'viewmode', FILTER_SANITIZE_STRING);
     if (empty($viewmode)) {
@@ -50,6 +51,7 @@ do {
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } while (false);
+// $_SESSION['page']="../home.php";
 ?>
 
 <?php if ($error_msg !== "NOT-LOGGED-IN::"): ?>

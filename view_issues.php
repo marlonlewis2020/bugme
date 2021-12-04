@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/dbconnect.php';
 
-$_SESSION['page']="view_issues.php";
+$_SESSION['page']="../view_issues.php"; 
 
 if(isset($_SESSION['id'])){ 
     
@@ -26,12 +26,7 @@ if(isset($_SESSION['id'])){
             break;
         }
     } while (false);
-    ?>    
-
-    <?php if ($error_msg !== "NOT-LOGGED-IN::"): ?>
-        <?php if (!empty($error_msg)): ?>
-            <div class="queryerror"><?= $error_msg ?></div>
-        <?php endif; ?>
+    ?> 
         <div class = "container-k">
             <h1 class = "issuename"><?= $row['title'] ?></h1>
             <h3 class = "issueno">Issue #<?= (empty($row['id']) ? $issueid : $row['id']) ?></h3>
@@ -69,7 +64,6 @@ if(isset($_SESSION['id'])){
             </div>
         </div>
         <?php
-    endif;
  }
 else {
     include "includes/login.php";

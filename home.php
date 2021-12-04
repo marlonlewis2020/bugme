@@ -1,13 +1,7 @@
 <?php
 require_once 'includes/dbconnect.php';
 
-$_SESSION['page']="home.php"; ?>
-
-<head>
-    <script src="bugmek.js"></script>
-</head>
-
-<?php
+$_SESSION['page']="home.php"; 
 
 if(isset($_SESSION['id'])){ 
 

@@ -23,6 +23,9 @@ if(isset($_SESSION['id'])){
             <label for="new_psw"><b>Password</b></label>
             <input id="new_psw" type="password" placeholder="********" name="new_psw" required>
 
+            <label for="conf_psw"><b>Confirm Password</b></label>
+            <input id="conf_psw" type="password" placeholder="********" name="conf_psw" required>
+
             <label for="new_email"><b>Email</b></label>
             <input id="new_email" type="email" placeholder="user@email.com" name="new_email" required>
         </div>

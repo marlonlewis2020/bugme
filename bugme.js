@@ -92,6 +92,7 @@ $(document).ready(function(){
     $("#home").click(function(){
         console.log("home btn clicked");
         // loadPage("adduser.php");
+        loadPage("home.php");
     })
 
     $("#add_user").click(function(){

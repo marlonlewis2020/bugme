@@ -1,5 +1,5 @@
 <?php
-if (str_contains($_SERVER['SCRIPT_NAME'], "/includes/")) {
+if (strpos($_SERVER['SCRIPT_NAME'], "/includes/")!==false) {
     require_once 'dbconnect.php';
 } else {
     require_once 'includes/dbconnect.php';
@@ -18,7 +18,7 @@ do {
         break;
     }
 
-    $_SESSION['page']="home.php";
+    $_SESSION['page']="../home.php";
     $viewmode = filter_input(INPUT_GET, 'viewmode', FILTER_SANITIZE_STRING);
     if (empty($viewmode)) {
         $viewmode = "all";
@@ -51,7 +51,7 @@ do {
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } while (false);
-$_SESSION['page']="home.php";
+$_SESSION['page']="../home.php";
 ?>
 
 <?php if ($error_msg !== "NOT-LOGGED-IN::"): ?>

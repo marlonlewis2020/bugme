@@ -13,7 +13,7 @@ try {
     $type = filter_input(INPUT_POST,"type", FILTER_SANITIZE_STRING);
     $priority = filter_input(INPUT_POST,"priority",FILTER_SANITIZE_STRING);
     $assigned_to = filter_input(INPUT_POST,"assigned_to", FILTER_SANITIZE_STRING);
-    $created_by = filter_input(INPUT_POST,"id",FILTER_SANITIZE_STRING);
+    $created_by = filter_input(INPUT_POST,"created_by",FILTER_SANITIZE_STRING);
     date_default_timezone_set("America/Jamaica");
     $status = "open";
     $date = date("Y-m-d H:i:s"); //date("Y-m-d H:i:s");

@@ -17,7 +17,6 @@ do {
         }
         break;
     }
-    $_SESSION['page']="../home.php";
 
     $viewmode = filter_input(INPUT_GET, 'viewmode', FILTER_SANITIZE_STRING);
     if (empty($viewmode)) {

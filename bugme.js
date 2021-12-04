@@ -75,12 +75,7 @@ $(document).ready(function(){
 
     $("#new_issue").click(function(){
         console.log("new issue btn clicked");
-        if($(this).html()==logout){
-            logout_();
-        }
-        else{
-            loadPage("createissue.php");
-        }
+        loadPage("createissue.php");
     })
 
     $("#auth").click(function(){

@@ -12,9 +12,32 @@ body{
   padding:0;
 }
 
-.form-fields{
+.create_form, .form-fields{
   display: flex;
   flex-direction: column;
+}
+
+.create_issue_field{
+  margin: 20px 0 0 0;
+}
+
+.create_field{
+  display: flex;
+  background-color: rgb(235, 231, 231);
+  flex-direction: column;
+  border-radius: 5px;
+  width: 65%;
+  height: 28px;
+  align-content: center;
+  padding: 2 0;
+}
+
+#descrip{
+  min-height: 50px;
+}
+
+.create_label{
+  font-weight: bold;
 }
 
 #main{

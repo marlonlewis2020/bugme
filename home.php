@@ -1,9 +1,18 @@
 <?php
-require_once 'includes/dbconnect.php';
+'includes/dbconnect.php';
 
-$_SESSION['page']="../home.php"; 
 
-if(isset($_SESSION['id'])){ 
+$error_msg = "";
+
+do {
+    if (!isset($_SESSION['id'])) {
+        $error_msg = "NOT-LOGGED-IN::";
+        
+        include 'includes/login.php';
+        
+        break;
+    }
+
 
     $viewmode = filter_input(INPUT_GET, 'viewmode', FILTER_SANITIZE_STRING);
     if (empty($viewmode)) {
@@ -11,10 +20,18 @@ if(isset($_SESSION['id'])){
     }
     $viewmode = htmlspecialchars($viewmode);
 
+    if (!$conn) {
+        $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+        if (!$conn) {
+            $error_msg = "Critical Error:: Unable to access Database ...";
+            break;
+        }
+    }
     $sql = "SELECT * FROM issues join " .
             "(select id as cid, email, firstname as cfn, lastname as cln FROM users) AS cby on " .
             "cby.cid=issues.created_by";
     switch ($viewmode) {
+        default :
         case "all":
             break;
         case "open":
@@ -23,14 +40,18 @@ if(isset($_SESSION['id'])){
         case "ticket":
             $sql .= " WHERE cby.email='" . $_SESSION['email'] . "';";
             break;
-        default :
-            break;
     }
 
     $stmt = $conn->query($sql);
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    ?>
+} while (false);
+?>
+
+<?php if ($error_msg !== "NOT-LOGGED-IN::"): ?>
+    <?php if (!empty($error_msg)): ?>
+        <div class="queryerror"><?= $error_msg ?></div>
+    <?php endif; ?>
     <div class="container-k">
         <h1 class="issuename issuename-2">Issues</h1>
 
@@ -84,8 +105,6 @@ if(isset($_SESSION['id'])){
                 </h4>
             </div>
         </div>
-    <?php endforeach; 
-}
-else {
-    include "includes/login.php";
-} ?>
+    <?php endforeach; ?>
+
+<?php endif; ?>

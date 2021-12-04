@@ -1,8 +1,10 @@
 <?php
 require_once 'includes/dbconnect.php';
 
-
-if (isset($_SESSION['id'])) {  
+do {
+    if (!isset($_SESSION['id'])) {
+        break;
+    }
 
     $issueid = filter_input(INPUT_GET, 'issueid', FILTER_SANITIZE_STRING);
     $operation = filter_input(INPUT_GET, 'oper', FILTER_SANITIZE_STRING);
@@ -11,6 +13,13 @@ if (isset($_SESSION['id'])) {
     } else {
         $issueid = htmlspecialchars($issueid);
         $operation = htmlspecialchars($operation);
+    }
+
+    if (!$conn) {
+        $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+        if (!$conn) {
+            break;
+        }
     }
 
     $newstatus = "";
@@ -27,18 +36,9 @@ if (isset($_SESSION['id'])) {
                 $newstatus . "',updated='" . $datetime . "' WHERE id=" . $issueid . ";");
         if (!$stmt) {
             $update_error = "Critical Error::Unable to Update issues data table...";
-            echo '
-            <script>
-            Swal.fire(
-                "Oops!",
-                '.$update_error.',
-                "warning"
-            )
-            </script>
-            ';
         }
     }
-    include $_SESSION['page'];
-}else {
-    include "includes/login.php";
-} ?>   
+} while (false);
+
+include 'view_issues.php';
+?>   

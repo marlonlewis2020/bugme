@@ -77,7 +77,7 @@ $(document).ready(function(){
             } while (false);
         }
         
-        $(document).on("click", "button.btn-closed", function (event) {
+        $(".btn-closed").click(function (event) {
             event.stopPropagation();
             event.preventDefault();
         
@@ -85,7 +85,9 @@ $(document).ready(function(){
             if (issueid) {
                 updateStatus(issueid, "closed");
             }
-        }).on("click", "button.btn-progress", function (event) {
+        })
+        
+        $(".btn-progress").click(function (event) {
             event.stopPropagation();
             event.preventDefault();
         
@@ -93,7 +95,9 @@ $(document).ready(function(){
             if (issueid) {
                 updateStatus(issueid, "progress");
             }
-        }).on("click", "a.querydetail", function (event) {
+        })
+        
+        $(document).on("click", "a.querydetail", function (event) {
             event.stopPropagation();
             event.preventDefault();
         
@@ -134,6 +138,10 @@ $(document).ready(function(){
             $("#id01").css({
                 "display":"none"
             })
+        })
+
+        $("#createissue").click(()=>{
+            loadPage("createIssue.php");
         })
 
         $("#issue_new").submit((e)=>{
@@ -241,6 +249,9 @@ $(document).ready(function(){
     // -------- MENU BUTTON FUNCTIONS --------
     // 
 
+    $("#createissue").click(()=>{
+        loadPage("createIssue.php");
+    })
 
     $("#home").click(function(){
         console.log("home btn clicked");

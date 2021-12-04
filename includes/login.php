@@ -1,10 +1,11 @@
 <?php
 require_once 'dbconnect.php';
 
-if(!isset($_SESSION['id'])){
-  $_SESSION['page']="../home.php";
-?>
 
+if(!isset($_SESSION['id'])){
+  $_SESSION['page'] = "../home.php";
+?>
+  
   <h2>BugMe Issue Tracker Login Form</h2>
 
   <button id="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
@@ -40,6 +41,7 @@ if(!isset($_SESSION['id'])){
   </div>
 <?php }
 else{
+  // $_SESSION['page']="../home.php";
   include $_SESSION['page'];
 }
 ?>

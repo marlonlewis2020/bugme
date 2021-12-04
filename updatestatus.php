@@ -41,4 +41,4 @@ do {
 } while (false);
 
 include 'view_issues.php';
-?>   
+?>    

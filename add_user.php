@@ -1,9 +1,9 @@
 <?php 
 require_once 'includes/dbconnect.php';
 
-$_SESSION['page']="../add_user.php";
-
-if(isset($_SESSION['id'])){ ?>
+if(isset($_SESSION['id'])){ 
+  $_SESSION['page']="../add_user.php";
+  ?>
 
 <h2>New User</h2>
   

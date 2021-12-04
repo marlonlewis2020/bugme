@@ -6,7 +6,8 @@
         <meta name="author" content="Marlon Lewis, Kathilee Ledgister, Tiffany, Olivia Hibbert, Davica Chambers">
         <title>BugMe Issue Tracker</title>
         <link rel="icon" href="images/group_avatar_icon.png" type="image/x-icon">
-        <link rel="stylesheet" href="bugme.css">
+        <link rel="stylesheet" href="bugme.css"> <!-- home screen style sheet -->
+        <link rel="stylesheet" href="bugme-k.css"> <!-- Stye sheet for dashboard -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.10/sweetalert2.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.10/sweetalert2.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

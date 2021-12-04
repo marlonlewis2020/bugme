@@ -1,9 +1,8 @@
 <?php
 require_once 'includes/dbconnect.php';
 
-$_SESSION['page']="../view_issues.php"; 
-
 if(isset($_SESSION['id'])){ 
+    $_SESSION['page']="../view_issues.php";
     
     do {
         $issueid = filter_input(INPUT_GET, 'issueid', FILTER_SANITIZE_STRING);

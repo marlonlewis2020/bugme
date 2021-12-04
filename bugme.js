@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     // -------- IF NOT LOGGED IN, ALWAYS LOAD LOGIN PAGE.
     // -------- IF LOGGED IN, CONTINUE.
-    // loadPage("includes/login.php");
+    loadPage("includes/login.php");
 
     // -------- LOGIN FUNCTIONS AND EVENTS -------- //
 

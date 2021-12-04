@@ -24,7 +24,7 @@ require './includes/dbconnect.php';
             </div>
 
             <div class="" id="content" role="main">
-                <?php include "includes/login.php"; ?>
+                <!-- loaded content -->
             </div>
 
         </div>

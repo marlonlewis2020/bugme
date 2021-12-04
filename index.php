@@ -6,7 +6,6 @@ require './includes/dbconnect.php';
 <html lang="en">
 <head>
     <?php include 'includes/header.php'; ?>
-    <?php include 'includes/k-header.php'; ?>
 </head>
 <body>
     <div class="" id="container">

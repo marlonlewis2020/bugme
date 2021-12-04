@@ -24,7 +24,7 @@ body{
 
 .header{
   position:fixed;
-  z-index: 1;
+  z-index: 2;
   width:100%;
   padding: 10px 0px;
   background-color: black;
@@ -33,7 +33,7 @@ body{
   opacity: 1;
 }
 
-.header::before{
+body::before{
   content:"";
   top:0;
   /* bottom: 545px; */
@@ -63,7 +63,7 @@ body{
   margin-top:98px;
   min-width: 150px;
   height: 100vh;
-  padding-left: 10px;
+  padding-left: 0;
   background-color: var(--nav-bg-clr);
   opacity:var(--opacity);
 }
@@ -78,7 +78,9 @@ h3{
 }
 
 .nav-link{
-  width: 100%;
+  width:auto;
+  padding: 0;
+  padding-left: 10px;
   opacity: 1;
   font-size: 14px;
 }
@@ -122,6 +124,7 @@ h3{
 }
 
 .nav-link:hover{
+  background-color: #ffffff;
   cursor: pointer;
   color: var(--link-clr);
   opacity: 0.75;
@@ -131,7 +134,7 @@ h3{
 
 /* Full-width input fields */
 
-input[type=email], input[type=password] {
+input[type=text], input[type=email], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -141,7 +144,7 @@ input[type=email], input[type=password] {
   }
 
   /* Set a style for all buttons */
-  #login-btn, #login{
+  #new_user-btn, #login-btn, #login{
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
@@ -156,7 +159,7 @@ input[type=email], input[type=password] {
     border-radius: var(--round);
   }
   
-  #login:hover, #login-btn:hover {
+  #new_user-btn:hover, #login:hover, #login-btn:hover {
     opacity: 0.8;
   }
   

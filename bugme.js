@@ -9,8 +9,8 @@ $(document).ready(function(){
 
     // -------- LOGIN FUNCTIONS AND EVENTS -------- //
 
-    $("#content").on("DOMSubtreeModified",function(){
-        $("#login-form").submit(function(e){
+    $("#content").on("DOMSubtreeModified",()=>{
+        $("#login-form").submit((e)=>{
             e.preventDefault(); // action="includes/login_action_page.php" method="POST"
             var eml = $("input[type='email']").val();
             var pwd = $("input[type='password']").val();
@@ -19,12 +19,38 @@ $(document).ready(function(){
                 email:eml,
                 psw:pwd
             },
-            function(result){
+            (result)=>{
                 log();
                 $("#content").html(result);
             })
             $("#id01").css({
                 "display":"none"
+            })
+        })
+
+        $("#user-form").submit((e)=>{
+            e.preventDefault();
+            var eml = $("input[type='email']").val();
+            var pwd = $("input[type='password']").val();
+            var fname = $("#firstname").val();
+            var lname = $("#lastname").val();
+            $("#user-form input[type=text], #user-form input[type=email], #user-form input[type=password]").val("");
+            $.post("includes/add_user_action_page.php",{
+                email:eml,
+                password:pwd,
+                firstname:fname,
+                lastname:lname
+            },
+            (result)=>{
+                log();
+                var n_user = result.slice(10,-1);
+                if(result.slice(0,9).localeCompare("New User")){
+                    Swal.fire(
+                        'Success!',
+                        'New User '+n_user+' Successfully Added',
+                        'success'
+                      )
+                }
             })
         })
     })  
@@ -43,7 +69,7 @@ $(document).ready(function(){
     //and set the auth button to login
     //after successfully logging out.
     function logout_(){
-        $.get("includes/dbconnect.php?auth=logout",function(){})
+        $.get("includes/dbconnect.php?auth=logout")
         loadPage("includes/login.php");
     }
 
@@ -70,7 +96,7 @@ $(document).ready(function(){
 
     $("#add_user").click(function(){
         console.log("add user btn clicked");
-        // loadPage("adduser.php");
+        loadPage("add_user.php");
     })
 
     $("#new_issue").click(function(){

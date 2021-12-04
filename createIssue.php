@@ -48,6 +48,7 @@ if(isset($_SESSION['id'])){
     </div>
     <div>
         <input type="hidden" name="id" value=<?= $_SESSION["id"]; ?>>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <button type="submit" name="form_sub" value="Send" id="submit-btn3">Submit</button>
     </div>
   </form>

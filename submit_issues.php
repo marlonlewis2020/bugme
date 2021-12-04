@@ -9,48 +9,44 @@ $results = $bugme->fetchAll(PDO::FETCH_ASSOC);
 
 try {
     $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
+    // echo "title".$title."\n";
     $description = filter_input(INPUT_POST,"description", FILTER_SANITIZE_STRING);
-    $type = filter_input(INPUT_POST,"Type", FILTER_SANITIZE_STRING);
-    $priority = filter_input(INPUT_POST,"Priority",FILTER_SANITIZE_STRING);
-    $assigned_to = filter_input(INPUT_POST,"Assigned To", FILTER_SANITIZE_STRING);
+    // echo "description".$description."\n";
+    $type = filter_input(INPUT_POST,"type", FILTER_SANITIZE_STRING);
+    // echo "type".$type."\n";
+    $priority = filter_input(INPUT_POST,"priority",FILTER_SANITIZE_STRING);
+    // echo "priority".$priority."\n";
+    $assigned_to = filter_input(INPUT_POST,"assigned_to", FILTER_SANITIZE_STRING);
+    // echo "assigned_to".$assigned_to."\n";
     $created_by = filter_input(INPUT_POST,"id",FILTER_SANITIZE_STRING);
+    // echo "created_by".$created_by."\n";
     date_default_timezone_set("America/Jamaica");
     $status = "open";
-    $date = date("Y-m-d H:i:s");
+    $date = date("Y-m-d H:i:s"); //date("Y-m-d H:i:s");
     //  `id`,`title`,`description`,`type`,`priority`,`status`,`assigned_to`,`created_by`,`created`,`updated`
 
-    $bugme = $conn->prepare("INSERT INTO Issues (title, description, type, priority, status, assigned_to, created_by, date) 
-    VALUES (:title,:description,:type,:priority,:status,:assigned_to,:created_by,:date)");
-    $bugme->bindParam(':title',$title);
-    $bugme->bindParam(':description',$description);
-    $bugme->bindParam(':type',$type);
-    $bugme->bindParam(':priority',$priority);
-    $bugme->bindParam(':status',$status);
-    $bugme->bindParam(':assigned_to',$assigned_to);
-    $bugme->bindParam(':created_by',$created_by);
-    $bugme->bindParam(':date',$date);
-    $bugme->execute();
-
-    echo '
-    <script>
-        swal.fire(
-            "Successfully Submitted!",
-            "'.$created_by.', your issue has been successfully submitted for review!",
-            "success"
-        )
-    </script>
-    ';
+    $bugme = $conn->prepare("INSERT INTO `issues`(`title`, `description`, `type`, `priority`, `status`, `assigned_to`, `created_by`, `created`, `updated`) VALUES". 
+    "(?,?,?,?,?,?,?,?,?)");
+    if($bugme->execute([
+        $title,
+        $description,
+        $type,
+        $priority,
+        $status,
+        (int)$assigned_to,
+        (int)$created_by,
+        $date,
+        $date
+    ])){
+        echo "Successfully Submitted!";
+    }
+    else{
+        echo "Your issue could not be sumitted at this time.";
+    }
+    
 
 } catch(PDOException $pe) {
-    echo '
-    <script>
-        swal.fire(
-            "Something went wrong!",
-            "Your issue could not be sumitted at this time. Please, try again later or contact your system admin.",
-            "warning"
-        )
-    </script>
-    ';
+    echo "Your issue could not be sumitted at this time. Please, try again later or contact your system admin.";
 }
 
 

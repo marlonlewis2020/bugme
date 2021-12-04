@@ -151,13 +151,20 @@ $(document).ready(function(){
             },
             (result)=>{
                 log();
-                var n_user = result.slice(10,-1);
-                if(result.slice(0,9).localeCompare("New User")){
+                var n_user = result;
+                if (n_user.slice(0,8)==="New User"){
                     Swal.fire(
-                        'Success!',
-                        'New User '+n_user+' Successfully Added',
-                        'success'
-                      )
+                        "SUCCESS!",
+                        n_user,
+                        "success"
+                    )
+                }
+                else {
+                    Swal.fire(
+                        "Oops!",
+                        n_user,
+                        "warning"
+                    )
                 }
             })
         })

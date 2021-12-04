@@ -15,15 +15,19 @@ $chk = $check->fetchColumn();
 if($chk<1){
     try{
         $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->exec($sql);
-        echo "New User '{$firstname}'";
+        if($conn->exec($sql)){
+            echo "New User '{$firstname}' successfully created!";
+        };
+        // echo "New User '{$firstname}'";
     }
     catch(PDOException $e){
-        echo "Failed to add '".$firstname."' as a new User. Try Again or contact System Administrator. ". $e->getMessage();
+        echo 
+        "Failed to add '".$firstname."' as a new User";
     }
 }
 else {
-    echo "User already exists with email '".$email."'! If this is an error, contact System Administrator to resolve.";
+    echo 
+    "User already exists with email '".$email."' ";
 }
 
 ?>

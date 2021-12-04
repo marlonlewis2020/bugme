@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/dbconnect.php';
 
-$_SESSION['page']="home.php"; 
+$_SESSION['page']="../home.php"; 
 
 if(isset($_SESSION['id'])){ 
 

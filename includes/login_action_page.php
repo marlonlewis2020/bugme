@@ -14,7 +14,7 @@ if($results && password_verify($password,$results['password'])){
     $_SESSION['firstname'] = $results['firstname'];
     $_SESSION['id'] = $results['id'];
     $_SESSION['email'] = $results['email'];
-    $_SESSION['page']="home.php";
+    $_SESSION['page']="../home.php";
 }
 else{
     echo "<p id='error'><i id='warn' class='material-icons'>warning</i> verification failed!</p>";

@@ -11,7 +11,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.10/sweetalert2.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.10/sweetalert2.js"></script>
         <!-- <link rel="stylesheet" href="styles-issue.css"> -->
-        <!-- <script src="bugme-issues.js" type="text/javascript"></script> -->
+        <script src="bugmek.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="bugme.js"></script>

@@ -1,5 +1,5 @@
 <?php
-if (str_contains($_SERVER['SCRIPT_NAME'], "/includes/")) {
+if (strstr($_SERVER['SCRIPT_NAME'], "/includes/")) {
     require_once 'dbconnect.php';
 } else {
     require_once 'includes/dbconnect.php';
@@ -10,7 +10,7 @@ $error_msg = "";
 do {
     if (!isset($_SESSION['id'])) {
         $error_msg = "NOT-LOGGED-IN::";
-        if (str_contains($_SERVER['SCRIPT_NAME'], "/includes/")) {
+        if (strstr($_SERVER['SCRIPT_NAME'], "/includes/")) {
             include 'login.php';
         } else {
             include 'includes/login.php';

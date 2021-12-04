@@ -1,23 +1,9 @@
 <?php
-if (str_contains($_SERVER['SCRIPT_NAME'], "/includes/")) {
-    require_once 'dbconnect.php';
-} else {
-    require_once 'includes/dbconnect.php';
-}
+require_once 'includes/dbconnect.php';
 
-$error_msg = "";
+$_SESSION['page']="home.php";
 
-do {
-    if (!isset($_SESSION['id'])) {
-        $error_msg = "NOT-LOGGED-IN::";
-        if (str_contains($_SERVER['SCRIPT_NAME'], "/includes/")) {
-            include 'login.php';
-        } else {
-            include 'includes/login.php';
-        }
-        break;
-    }
-
+if(isset($_SESSION['id'])){ 
 
     $viewmode = filter_input(INPUT_GET, 'viewmode', FILTER_SANITIZE_STRING);
     if (empty($viewmode)) {
@@ -25,18 +11,10 @@ do {
     }
     $viewmode = htmlspecialchars($viewmode);
 
-    if (!$conn) {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-        if (!$conn) {
-            $error_msg = "Critical Error:: Unable to access Database ...";
-            break;
-        }
-    }
     $sql = "SELECT * FROM issues join " .
             "(select id as cid, email, firstname as cfn, lastname as cln FROM users) AS cby on " .
             "cby.cid=issues.created_by";
     switch ($viewmode) {
-        default :
         case "all":
             break;
         case "open":
@@ -45,18 +23,14 @@ do {
         case "ticket":
             $sql .= " WHERE cby.email='" . $_SESSION['email'] . "';";
             break;
+        default :
+            break;
     }
 
     $stmt = $conn->query($sql);
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} while (false);
-?>
-
-<?php if ($error_msg !== "NOT-LOGGED-IN::"): ?>
-    <?php if (!empty($error_msg)): ?>
-        <div class="queryerror"><?= $error_msg ?></div>
-    <?php endif; ?>
+    ?>
     <div class="container-k">
         <h1 class="issuename issuename-2">Issues</h1>
 
@@ -110,6 +84,8 @@ do {
                 </h4>
             </div>
         </div>
-    <?php endforeach; ?>
-
-<?php endif; ?>
+    <?php endforeach; 
+}
+else {
+    include "includes/login.php";
+} ?>

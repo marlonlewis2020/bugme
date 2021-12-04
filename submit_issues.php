@@ -5,8 +5,6 @@ require_once 'includes/dbconnect.php';
 $bugme = $conn->query("SELECT * FROM users;");
 $results = $bugme->fetchAll(PDO::FETCH_ASSOC);
 
-session_start();
-
 //sanitizing data and initialising status to open
 
 try {

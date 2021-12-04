@@ -50,7 +50,6 @@ do {
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } while (false);
-// $_SESSION['page']="../home.php";
 ?>
 
 <?php if ($error_msg !== "NOT-LOGGED-IN::"): ?>

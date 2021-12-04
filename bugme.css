@@ -17,11 +17,11 @@ body{
   flex-direction: column;
 }
 
-.create_issue_field{
+.newissuebtn, .create_issue_field{
   margin: 20px 0 0 0;
 }
 
-.create_field{
+.create_field, #title{
   display: flex;
   background-color: rgb(235, 231, 231);
   flex-direction: column;
@@ -32,8 +32,8 @@ body{
   padding: 2 0;
 }
 
-#descrip{
-  min-height: 50px;
+#description{
+  min-height: 70px;
 }
 
 .create_label{
@@ -129,6 +129,10 @@ h3{
   border-radius: var(--round);
 }
 
+#submit-btn3{
+  border-radius: var(--round);
+}
+
 .material-icons{
   padding-right: 10px; 
   float: left;
@@ -175,6 +179,15 @@ input[type=text], input[type=email], input[type=password] {
     border: none;
     cursor: pointer;
     width: 100%;
+  }
+
+  #submit-btn3{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
   }
 
   #login{

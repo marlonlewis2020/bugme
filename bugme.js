@@ -136,6 +136,44 @@ $(document).ready(function(){
             })
         })
 
+        $("#issue_new").submit((e)=>{
+            e.preventDefault();
+            var ttl = $("#title").val();
+            var desc = $("#description").val();
+            var pri = $("#priority").val();
+            var asgn = $("#assigned_to").val();
+            var typ = $("#type").val();
+            var cre = $("#created_by").val();
+            $("#issue_new input[type=text], #issue_new textarea[type=text]").val("");
+            $.post("submit_issues.php",{
+                title: ttl,
+                description: desc,
+                priority: pri,
+                assigned_to: asgn,
+                type: typ,
+                created_by: cre,
+            },
+            (result)=>{
+                
+                log();
+                if("Successfully Submitted!".localeCompare(result)){
+                    Swal.fire(
+                        "SUCCESS!",
+                        result,
+                        "success"
+                    )
+                    loadPage("home.php");
+                }
+                else{
+                    Swal.fire(
+                        "Oops!!",
+                        result,
+                        "warning"
+                    )
+                }
+            })
+        })
+
         $("#user-form").submit((e)=>{
             e.preventDefault();
             var eml = $("input[type='email']").val();

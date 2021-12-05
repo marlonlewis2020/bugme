@@ -58,10 +58,10 @@ do {
             <p class = "pg"><?= $row['description'] ?></p>
             <ul class = "liststyle"> 
                 <li><span class="material-icons">chevron_right</span>Issue created on 
-                    <?= $created->format("F j, Y");?>&nbsp;at&nbsp;<?=$created->format("g:i:sa") ; ?>
+                    <?= $created->format("F j, Y");?>&nbsp;at&nbsp;<?=$created->format("g:iA") ; ?>
                     by <?= ucfirst($row['cfn']) ?>&nbsp;<?= ucfirst($row['cln']) ?>.</li>
                 <li><span class="material-icons">chevron_right</span>Last Updated on 
-                    <?= $updated->format("F j, Y");?>&nbsp;at&nbsp;<?=$created->format("g:i:sa") ; ?></li>
+                    <?= $updated->format("F j, Y");?>&nbsp;at&nbsp;<?=$created->format("g:iA") ; ?></li>
             </ul>
         </div>
         <div class = "issueinfo">

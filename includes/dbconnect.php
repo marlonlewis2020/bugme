@@ -8,7 +8,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 
 $request = filter_input(INPUT_GET,'auth',FILTER_SANITIZE_STRING);
 
-$_SESSION['page']="../home.php";
+// $_SESSION['page']="../home.php";
 if($request=="logout"){
     $_SESSION['firstname'] = null;
     $_SESSION['id'] = null;

@@ -37,6 +37,8 @@ do {
             " on ato.aid=issues.assigned_to WHERE issues.id=" . $issueid . ";");
 
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $updated = new DateTime($row['updated'], new DateTimeZone('-0400'));
+    $created = new DateTime($row['created'], new DateTimeZone('-0400'));
 
     if ($stmt->rowCount() === 0) {
         $error_msg = "Critical Error:: Issue ID not found in Database ...";
@@ -56,10 +58,10 @@ do {
             <p class = "pg"><?= $row['description'] ?></p>
             <ul class = "liststyle"> 
                 <li><span class="material-icons">chevron_right</span>Issue created on 
-                    <?= empty($error_msg) ? strftime("%B %e, %Y at %l:%M %p", strtotime($row['created'])) : "***" ?>
+                    <?= $created->format("F j, Y");?>&nbsp;at&nbsp;<?=$created->format("g:i:sa") ; ?>
                     by <?= ucfirst($row['cfn']) ?>&nbsp;<?= ucfirst($row['cln']) ?>.</li>
                 <li><span class="material-icons">chevron_right</span>Last Updated on 
-                    <?= empty($error_msg) ? strftime("%B %e, %Y at %l:%M %p", strtotime($row['updated'])) : "***" ?>.</li>
+                    <?= $updated->format("F j, Y");?>&nbsp;at&nbsp;<?=$created->format("g:i:sa") ; ?></li>
             </ul>
         </div>
         <div class = "issueinfo">

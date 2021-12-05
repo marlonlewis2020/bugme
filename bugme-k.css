@@ -106,6 +106,7 @@
 .liststyle li{
     padding-top: .6rem;
     list-style-type:none;
+    color: rgb(106, 106, 106); 
 }
 
 .issueinfo{

@@ -16,7 +16,7 @@ try {
     $created_by = filter_input(INPUT_POST,"created_by",FILTER_SANITIZE_STRING);
     date_default_timezone_set("America/Jamaica");
     $status = "open";
-    $date = date("Y-m-d H:i:s"); //date("Y-m-d H:i:s");
+    $date = date("Y-m-d H:i:s"); // date("Y-m-d H:i:s");
 
     $bugme = $conn->prepare("INSERT INTO `issues`(`title`, `description`, `type`, `priority`, `status`, `assigned_to`, `created_by`, `created`, `updated`) VALUES". 
     "(?,?,?,?,?,?,?,?,?)");

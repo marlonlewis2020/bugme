@@ -1,8 +1,16 @@
 <?php 
+/* 
 $host = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'bugme';
+*/
+
+$host = 'sql3.freemysqlhosting.net';
+$username = 'sql3461562';
+$password = '4rrHcdJQ6N';
+$dbname = 'sql3461562';
+
 session_start();
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 

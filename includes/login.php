@@ -1,9 +1,7 @@
 <?php
 require_once 'dbconnect.php';
 
-
 if(!isset($_SESSION['id'])){
-  $_SESSION['page'] = "../home.php";
 ?>
   
   <h2>BugMe Issue Tracker Login Form</h2>

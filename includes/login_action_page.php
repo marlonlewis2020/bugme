@@ -18,11 +18,10 @@ if($results && password_verify($password,$results['password'])){
 }
 else{
     echo "<p id='error'><i id='warn' class='material-icons'>warning</i> verification failed!</p>";
-    $_SESSION['firstname'] = null;
-    $_SESSION['id'] = null;
-    $_SESSION['email'] = null;
+    unset($_SESSION['firstname'], $_SESSION['id'], $_SESSION['email']);
+    $_SESSION['page']="login.php";
 }
 
-include 'login.php';
+include $_SESSION['page'];
 
 ?>
